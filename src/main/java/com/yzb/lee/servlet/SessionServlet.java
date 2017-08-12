@@ -20,7 +20,4 @@ public class SessionServlet extends HttpServlet {
 		
 		resp.sendRedirect(req.getContextPath() + "/");
 	}
-	
-	
-
 }
