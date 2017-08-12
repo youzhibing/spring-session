@@ -22,9 +22,26 @@
 		class="org.springframework.session.data.redis.config.annotation.web.http.RedisHttpSessionConfiguration">
 		<property name="maxInactiveIntervalInSeconds" value="${redis.session.timeout}" />	<!-- session过期时间,单位是秒 -->
 	</bean>
-
-	<!--LettuceConnectionFactory -->
-	<bean
+    
+	<!--JedisConnectionFactory -->
+	<bean class="org.springframework.data.redis.connection.jedis.JedisConnectionFactory">
+        <constructor-arg>
+        	<!--redisCluster配置-->  
+    		<bean class="org.springframework.data.redis.connection.RedisClusterConfiguration">  
+        		<constructor-arg>
+        			<list>
+        				<value>${redis.master1}</value>
+        				<value>${redis.master2}</value>
+        				<value>${redis.master3}</value>
+        			</list>
+        		</constructor-arg>  
+    		</bean>
+        </constructor-arg>
+    </bean>
+    
+    <!--LettuceConnectionFactory -->
+    <!-- 单节点redis -->
+	<!-- <bean
 		class="org.springframework.data.redis.connection.lettuce.LettuceConnectionFactory"
-		p:host-name="${redis.host}" p:port="${redis.port}" p:password="${redis.pass}" />
+		p:host-name="${redis.host}" p:port="${redis.port}" p:password="${redis.pass}" /> -->
 </beans>

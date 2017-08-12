@@ -14,7 +14,6 @@
 	</properties>
 
 	<dependencies>
-
 		<dependency>
                 <groupId>org.springframework.session</groupId>
                 <artifactId>spring-session-data-redis</artifactId>
@@ -31,7 +30,7 @@
                 <artifactId>spring-web</artifactId>
                 <version>4.3.4.RELEASE</version>
         </dependency>
-
+		
         <dependency>
             <groupId>javax.servlet</groupId>
             <artifactId>jstl</artifactId>
